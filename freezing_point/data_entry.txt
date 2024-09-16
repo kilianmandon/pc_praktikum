@@ -1,0 +1,18 @@
+Solvent: VE-H2O, 100.0 mL
+Room temperature for solvent mass calculation: 21.4˚C, error 0,1
+Formula for density from temperature: rho = -0,00022897 * T + 1.00277688, temperature in ˚C, result in g/mL
+Errors for density: m error 2.9e-6, b error 6.5e-5
+
+Kryoscopic constant: theta = 1858 g*K/mol
+
+Temperature freezing point pure solvent:
+0.58, 0.59, 0.59 ˚C over three experiments
+
+1.00 g salt as solute: (error 0,01g for this and all following salts)
+0.09, 0.09, 0.10 ˚C over three experiments
+
+2.00 g salt as solute:
+-0.40, -0.40, -0.40 ˚C over three experiments
+
+3.00 g salt as solute:
+-0.82, -0.87, -0.83 ˚C over three experiments

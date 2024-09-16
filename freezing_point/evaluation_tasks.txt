@@ -1,0 +1,11 @@
+All errors are to be calculated using gaussian error propagation. 
+Errors on initially measured values are the root sum of squares of deviations over multiple measurements and device/digitalization errors (if both are given, else only device error or no error if the value is fixed)
+
+- Calculation of solvent mass with error
+- Calculation of solute to solvent mass ratio with error
+- Calculation of average freezing point with error for pure solvent and the three solutions
+- Calculation of the difference pure solvent - solution freezing points for the three solutions, with errors
+- Calculation of the molar mass of the salt by freezing point decrease using the formula M_2 = (theta * m^* / Delta T) * 2, where theta is the kryoscopic constant, m as the solute to solvent mass ratio, delta T is the difference in melting point relative to the pure solution, and 2 is a factor from the binary nature of the salt.
+
+- Calcuation of the mean molar mass, the standard deviation, and the error by error propagation
+- Additionally, plot the molar masses with errors over the used solute mass, as the formula should give better results for smaller solute concentrations
