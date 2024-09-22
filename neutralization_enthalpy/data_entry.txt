@@ -1,0 +1,47 @@
+t = np.arange(0, 26)
+# Values extracted from the image
+phi_values = [
+    -0.001742,
+    -0.001742, -0.001743, -0.001743, -0.001744, -0.001745,
+    -0.001803, -0.001803, -0.001802, -0.001802, -0.001802,
+    -0.001810, -0.001834, -0.001850, -0.001860, -0.001865,
+    -0.001868, -0.001870, -0.001871, -0.001872, -0.001872,
+    -0.001872, -0.001872, -0.001872, -0.001872, -0.001872
+]
+phi_error = 0.000001
+
+Titration with 0.5 M NaOH:
+1. 43.13 mL, 2. 40.59 mL, 3. 42.42 mL, 4. 42.11 mL
+First value incorrectly measured (automatic burette empty during experiment), second value seems too far off from 3rd and 4th, but no direct link to experimental setup, typical problems, going on with only 3rd and 4th value
+
+20,0 mL volume of HCl, concentration determined by titration (step before)
+
+The exact volume is determined by weight:
+Weight of acid container before experiment (with acid): 86.295g
+After experiment (without acid): 65.704g
+Assumed density of acid in this diluted stage:1.03 g/mL
+This liquid volume was measured for neutralization and will be used for both neutralization and dilution
+
+used mass of NaOH: 1.866 g (10% more)
+
+Measured potential difference Delta Phi:
+These were obtained by a graphical evaluation. Explanation: Fitting linear equation through the plateaus (early, mid and late plateau), linear interpolation of measured phi values (measured every minute, see values above). Early phase [0, 5] minutes, middle phase [6, 10] minutes, late phase [18, 25] minutes. Choosing transition point between end of first / start of second phase, so that the areas between the linear equation through plateaus and the linaerly interpolated measured phi values on the rhs and lhs of the transition point are equal, calculated through numerical integration. At the transition point, the difference of the two linear equations is calculated and used as the phi difference over neutralization / calibration. Error is constructed from two parts: Flat error (sqrt(2) phi_error from error propagation through the difference of the linear equations, with error phi_error on the function values at the transition point), and positional error (checking how transition point changes when adding/subtracting phi_error two both linear equations, maximum abs diff of function value difference at the new transition points with the previously calculated transition point, negligible compared to flat error).
+Measurement:
+Neutralization:
+Transition point: 5.49748743718593 min
+Delta Phi: 5.818559463986587e-05 mV
+Total error: 1.4143292631007191e-06 mV
+By pos error: 1.8090452261415937e-08 mV
+Calibration:
+Transition point: 12.532663316582914 min
+Delta Phi: 7.008752093802355e-05 mV
+Total error: 1.4149690172454828e-06 mV
+By pos error: 4.6231155778836755e-08 mV
+
+For the dilution experiment:
+Construction just like before, but carried out on paper and eyeballed the linear equations / area equalization point. 
+Function value difference at estimated transition point 0.001685 - 0.0016822 mV, using only flat phi error here
+
+Voltage during calibration: maximum measured 230V, minimum measured 225V, use mean as value standard deviation as error
+Amps during calibration: max 0.375A, min 0.364A, same here
+Time: 35.0s, error 0.2s reaction time

@@ -1,1 +1,4 @@
+Basic Design:
 https://chatgpt.com/share/66e8447a-8c40-8011-9ba9-2ed8083ea089
+
+Documentation of conversation leading to the fine-tuning of the protocol is unfortunately prohibited from sharing by OpenAI because of an uploaded image in the chat. Many of the fine-grained changes to error calculation were carried out manually.

@@ -12,13 +12,15 @@ T_room_error = 0.1
 rho_slope_error = 2.9e-6  # error in slope
 rho_intercept_error = 6.5e-5  # error in intercept
 V_solvent = 100.0  # mL
-salt_masses = np.array([1.00, 2.00, 3.00])  # in g
-salt_mass_error = 0.01  # in g
+V_solvent_err = 0.1
+
+salt_masses = np.array([1.0012, 2.0027, 3.0041])  # in g
+salt_mass_error = 0.0005  # in g
 freezing_points_pure = np.array([0.58, 0.59, 0.59])  # in Celsius
 freezing_points_solutions = {
-    1.00: np.array([0.09, 0.09, 0.10]),
-    2.00: np.array([-0.40, -0.40, -0.40]),
-    3.00: np.array([-0.82, -0.87, -0.83])
+    1.0012: np.array([0.09, 0.09, 0.10]),
+    2.0027: np.array([-0.40, -0.40, -0.40]),
+    3.0041: np.array([-0.82, -0.87, -0.83])
 }
 device_error = 0.01  # Device error for temperature in Celsius
 
@@ -33,25 +35,26 @@ rho_error = np.sqrt((T_room_error * rho_formula_slope)**2 + rho_slope_error**2 *
 
 # Calculation of solvent mass with error
 m_solvent = V_solvent * rho_solvent
-m_solvent_error = V_solvent * rho_error
+m_solvent_error = np.sqrt((V_solvent * rho_error) ** 2 + (V_solvent_err * rho_solvent)**2)
 
 # Displaying intermediate results
-print(f"Room Temperature: {T_room:.2f} ± {T_room_error:.2f} °C")
+print(f"Room Temperature: {T_room:.3f} ± {T_room_error:.3f} °C")
 print(f"Density of Solvent: {rho_solvent:.6f} ± {rho_error:.6f} g/mL")
-print(f"Solvent Mass: {m_solvent:.2f} ± {m_solvent_error:.2f} g\n")
+print(f"Solvent Mass: {m_solvent:.3f} ± {m_solvent_error:.3f} g\n")
 
 # Calculation of average freezing point and error for pure solvent
 freezing_point_pure_avg = np.mean(freezing_points_pure)
 freezing_point_pure_std = np.std(freezing_points_pure, ddof=1)  # Standard deviation for error
-freezing_point_pure_error = np.sqrt(freezing_point_pure_std**2 + device_error**2)
+freezing_point_pure_error = np.sqrt(freezing_point_pure_std**2/3 + device_error**2)
 
-print(f"Average Freezing Point (Pure Solvent): {freezing_point_pure_avg:.2f} ± {freezing_point_pure_error:.2f} °C\n")
+print(f"Average Freezing Point (Pure Solvent): {freezing_point_pure_avg:.4f} ± {freezing_point_pure_error:.4f} °C\n")
+print(f"Standard deviation pure: {freezing_point_pure_std}")
 
 # Function to calculate the difference in freezing points and its error
 def calculate_delta_T(freezing_point_solution):
     avg_solution = np.mean(freezing_point_solution)
     std_solution = np.std(freezing_point_solution, ddof=1)
-    solution_error = np.sqrt(std_solution**2 + device_error**2)
+    solution_error = np.sqrt(std_solution**2/3 + device_error**2)
     delta_T = freezing_point_pure_avg - avg_solution
     delta_T_error = np.sqrt(freezing_point_pure_error**2 + solution_error**2)
     return delta_T, delta_T_error, avg_solution, solution_error
@@ -73,11 +76,13 @@ for m_salt, fp_solution in freezing_points_solutions.items():
     molar_masses.append(M_2)
     errors.append(M_2_error)
     
-    print(f"Salt Mass: {m_salt:.2f} g")
-    print(f"Average Freezing Point (Solution): {avg_solution:.2f} ± {solution_error:.2f} °C")
-    print(f"Freezing Point Difference ΔT: {delta_T:.2f} ± {delta_T_error:.2f} °C")
-    print(f"Mass Ratio (m/m_solvent): {m_ratio:.4f} ± {m_ratio_error:.4f}")
-    print(f"Molar Mass of Salt: {M_2:.2f} ± {M_2_error:.2f} g/mol\n")
+    print(f"Salt Mass: {m_salt:.3f} g")
+    print(f"Average Freezing Point (Solution): {avg_solution:.4f} ± {solution_error:.4f} °C")
+    print(f"Freezing Point Difference ΔT: {delta_T:.4f} ± {delta_T_error:.4f} °C")
+    print(f"Mass Ratio (m/m_solvent): {m_ratio:.6f} ± {m_ratio_error:.6f}")
+    print(f"Molar Mass of Salt: {M_2:.3f} ± {M_2_error:.3f} g/mol")
+    print(f"Relative error: {M_2_error/M_2}")
+    print("")
 
 # Calculate mean molar mass and its standard deviation and error
 mean_molar_mass = np.mean(molar_masses)
@@ -85,14 +90,14 @@ std_molar_mass = np.std(molar_masses, ddof=1)
 mean_molar_mass_error = np.sqrt(np.sum(np.array(errors)**2)) / len(errors)
 
 # Displaying final results
-print(f"Mean Molar Mass: {mean_molar_mass:.2f} g/mol ± {mean_molar_mass_error:.2f} g/mol")
-print(f"Standard Deviation of Molar Mass: {std_molar_mass:.2f} g/mol\n")
+print(f"Mean Molar Mass: {mean_molar_mass:.3f} g/mol ± {mean_molar_mass_error:.3f} g/mol")
+print(f"Standard Deviation of Molar Mass: {std_molar_mass:.3f} g/mol\n")
 
 # Plotting molar masses with errors over used solute mass
 plt.errorbar(salt_masses, molar_masses, yerr=errors, fmt='o', capsize=5)
 plt.xlabel('Salt Mass (g)')
 plt.ylabel('Molar Mass (g/mol)')
-plt.title('Molar Masses vs Salt Mass')
+# plt.title('Molar Masses vs Salt Mass')
 plt.grid(True)
 plt.show()
 

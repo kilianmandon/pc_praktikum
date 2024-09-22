@@ -1,0 +1,11 @@
+Calculation (write a python script to calculate these values), including errors using gaussian error propagation:
+When multiple experiments were carried out, use sqrt(std_deviation**2 + propagated_measurement_err**2) as error to regard both input error sources
+
+- Concentration of acid by titration with NaOH (NaOH concentration 0.5, no error assumed, V of NaOH in data, n_acid = c\cdot V, V_acid = 10.0 mL, 0.05 mL error assumed)
+- Volume of acid in container by weight difference of container
+- Amount of acid in neutralization experiment as c*V from concentration (titration) and volume (by mass and assumed density)
+- Work during calibration (U*I*t)
+- Enthalpy during neutralization, using -W_calibration * Delta Phi_neutralization / Delta Phi_calibration
+- Enthalpy during dilution
+- Molar values for both by dividing by the amount calculated beforehand
+

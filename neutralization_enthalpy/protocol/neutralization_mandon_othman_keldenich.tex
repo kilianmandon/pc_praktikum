@@ -1,0 +1,209 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+
+\title{Determination of the Molar Enthalpy of Neutralization}
+\author{Group 304: Kilian Mandon}
+\date{22.09.2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The enthalpy of neutralization (\(\Delta H_{\text{neutralization}}\)) is a fundamental thermodynamic quantity that measures the heat released when an acid and a base react to form water under standard conditions. For a strong acid-strong base reaction, this process can be represented as:
+\[
+\text{H}^+ + \text{OH}^- \rightarrow \text{H}_2\text{O}
+\]
+In such reactions, both the acid and base dissociate completely in solution, resulting in the enthalpy change being a measure of the heat produced per mole of water formed. This exothermic process typically releases around -57~kJ/mol of heat for strong acids and bases.
+
+In this experiment, we aim to determine the molar reaction enthalpy of the neutralization of hydrochloric acid (HCl) with sodium hydroxide (NaOH) using a calorimetric approach. Additionally, we will evaluate the dilution heat effect to obtain the actual neutralization enthalpy by separating it from the heat absorbed due to the dilution of the acid.
+
+The process is monitored using a calorimeter, which measures the temperature change associated with the reaction. By calibrating the calorimeter with electrical heating, we can accurately determine the heat capacity of the system, enabling us to calculate the enthalpy change based on temperature variations during the neutralization and dilution experiments. Error propagation analysis will be used to determine the uncertainties associated with the measurements.
+
+The specific objectives of this experiment are as follows:
+\begin{itemize}
+    \item Determine the molar enthalpy of neutralization for HCl and NaOH using calorimetric data.
+    \item Account for dilution effects by performing a separate experiment with deionized water.
+    \item Apply Gaussian error propagation techniques to estimate uncertainties in the enthalpy values.
+\end{itemize}
+
+This comprehensive analysis allows us to understand the thermodynamics of the neutralization reaction and the importance of accounting for experimental uncertainties in calorimetric measurements.
+
+\section{Methods}
+\subsection{Preparation of Hydrochloric Acid Solution}
+A hydrochloric acid solution of approximately 2.0 to 2.25 mol/L was prepared by diluting concentrated HCl (37\% by mass, density = 1.19 kg/L) with deionized water to a final volume of 100 mL. The precise concentration of the resulting solution was determined using a titration method with a standardized 0.5 mol/L sodium hydroxide (NaOH) solution. 
+
+Two titration measurements were performed, but only the last two were used for concentration determination due to observed inconsistencies with the first two values.
+
+\subsection{Neutralization Experiment}
+The calorimeter setup used for the neutralization experiment consisted of a Dewar flask to minimize heat exchange with the environment, a stirring mechanism to ensure uniform mixing, and a thermocouple connected to an ice-water reference point for accurate temperature measurements.
+
+The experiment involved dissolving 1.866 g of NaOH pellets in 50 mL of deionized water directly inside the calorimeter. Additional deionized water was added to reach a specific marked volume. This process ensures that the heat produced during neutralization could be measured effectively.
+
+To monitor the neutralization reaction, 20.00 mL of the prepared HCl solution was carefully transferred into a vessel, weighed, and its exact mass recorded. The HCl solution was then added to the NaOH solution within the calorimeter, and the temperature change was recorded for 5 minutes prior to the addition (pre-reaction period), during the reaction, and for an additional 5 minutes post-reaction.
+
+\subsection{Calibration Experiment}
+To accurately determine the heat capacity (\(C_W\)) of the calorimeter, a calibration experiment was conducted using electrical heating. A known voltage and current were applied to a heating element submerged in the calorimeter for 35 seconds. The following quantities were recorded:
+\begin{itemize}
+    \item Voltage (\(U\)) over time, measured as \(U_{\text{min}} = 225 \, V\) and \(U_{\text{max}} = 230 \, V\).
+    \item Current (\(I\)) over time, measured as \(I_{\text{min}} = 0.364 \, A\) and \(I_{\text{max}} = 0.375 \, A\).
+\end{itemize}
+
+The electrical work supplied (\(W^*\)) was calculated using:
+\[
+W^* = U \cdot I \cdot t,
+\]
+where \(U\) and \(I\) are the mean voltage and current values, and \(t = 35.0 \pm 0.2 \, s\) represents the heating duration. This allowed for the determination of the calorimeter's water value \(C_W\) through the relationship:
+\[
+C_W = \frac{W^*}{\Delta T_{\text{calibration}}},
+\]
+where \(\Delta T_{\text{calibration}}\) is the measured temperature change during the calibration.
+
+\subsection{Dilution Experiment}
+To account for the heat of dilution, the neutralization experiment was repeated using 20.00 mL of deionized water instead of HCl. This step allowed for the separation of the dilution heat from the total measured heat in the primary experiment.
+
+The thermoelectric potential change was recorded for 5 minutes pre-addition, during addition, and for an additional 5 minutes post-addition, similar to the neutralization experiment. This value was subtracted from the total heat measured during the neutralization to isolate the enthalpy of the neutralization reaction.
+
+\subsection{Data Evaluation and Error Analysis}
+The data collected during the experiments were analyzed to determine the molar reaction enthalpy (\(\Delta H_{\text{neutralization}}\)) and its associated error using Gaussian error propagation.
+
+For the neutralization experiment, the change in temperature was determined graphically, with linear regressions fitted to different phases of the experiment (pre-reaction, reaction, and post-reaction periods). This method allowed for accurate determination of the point at which the temperature reached equilibrium.
+
+The molar enthalpy was calculated using:
+\[
+\Delta H_{\text{molar}} = -\frac{W^* \cdot \Delta \Phi_{\text{neutralization}}}{\Delta \Phi_{\text{calibration}} \cdot n_{\text{acid}}},
+\]
+where \(\Delta \Phi_{\text{neutralization}}\) and \(\Delta \Phi_{\text{calibration}}\) are the potential differences observed during the neutralization and calibration experiments, respectively, and \(n_{\text{acid}}\) is the number of moles of HCl used.
+
+Error propagation followed standard Gaussian methods, ensuring accurate reporting of uncertainties throughout the experiment.
+
+
+\section{Results}
+The results of this experiment include the determination of the concentration of the acid solution, the calibration of the calorimeter, and the calculation of the molar enthalpy of neutralization and dilution. All measured and calculated values, along with their associated errors, are presented with the correct significant digits.
+
+\subsection{Titration Results}
+The concentration of the hydrochloric acid solution was determined via titration. The titration volumes of the sodium hydroxide solution measured during the experiment were:
+\begin{align*}
+V_{\text{NaOH, 1}} &= 43.13 \, \text{mL}, \quad V_{\text{NaOH, 2}} = 40.59 \, \text{mL}, \\ \quad V_{\text{NaOH, 3}} &= 42.42 \, \text{mL}, \quad V_{\text{NaOH, 4}} = 42.11 \, \text{mL}
+\end{align*}
+As the first value was invalid, and the second appeared as an outlier, only the last two values were used for analysis.
+
+The mean titration volume is calculated as:
+\[
+\bar{V}_{\text{NaOH}} = \frac{42.42 + 42.11}{2}\,\text{mL} = 42.265 \, \text{mL}
+\]
+The error in the mean volume is calculated using:
+\[
+\sigma_{V_{\text{NaOH}}} = \sqrt{\frac{\left(\frac{42.42 - 42.265}{2}\right)^2 + \left(\frac{42.11 - 42.265}{2}\right)^2}{2} + (0.05)^2} = 0.16 \, \text{mL}
+\]
+Thus, the mean volume and its error are:
+\[
+\bar{V}_{\text{NaOH}} = 42.27 \pm 0.16 \, \text{mL}
+\]
+
+The concentration of HCl, \( c_{\text{HCl}} \), is calculated from the known concentration of NaOH (\( c_{\text{NaOH}} = 0.5 \, \text{mol/L} \)):
+\[
+c_{\text{HCl}} = \frac{c_{\text{NaOH}} \cdot \bar{V}_{\text{NaOH}}}{V_{\text{HCl}}} = \frac{0.5 \cdot 42.27}{10.0} = 2.113 \, \text{mol/L}
+\]
+The propagated error for \( c_{\text{HCl}} \) is calculated as:
+\[
+\sigma_{c_{\text{HCl}}} = c_{\text{HCl}} \sqrt{\left(\frac{\sigma_{V_{\text{NaOH}}}}{\bar{V}_{\text{NaOH}}}\right)^2 + \left(\frac{\sigma_{V_{\text{HCl}}}}{V_{\text{HCl}}}\right)^2}
+\]
+Substituting \( \sigma_{V_{\text{HCl}}} = 0.05 \, \text{mL} \), the result is:
+\[
+\sigma_{c_{\text{HCl}}} = 0.013 \, \text{mol/L}
+\]
+Thus, the final concentration is:
+\[
+c_{\text{HCl}} = 2.113 \pm 0.013 \, \text{mol/L}
+\]
+
+\subsection{Calibration Experiment}
+The calibration involved measuring the thermoelectric potential change during electrical heating, with voltage \( U \) ranging between 225 V and 230 V and current \( I \) ranging between 0.364 A and 0.375 A. The mean values were calculated as:
+\[
+U = \frac{225 + 230}{2} \,\text{V} = 227.5 \, \text{V}, \quad I = \frac{0.364 + 0.375}{2} \,\text{A}= 0.3695 \, \text{A}
+\]
+The associated errors were:
+\[
+\sigma_U = \frac{230 - 225}{2} = 2.5 \, \text{V}, \quad \sigma_I = \frac{0.375 - 0.364}{2} = 0.0055 \, \text{A}
+\]
+The work \( W^* \) was calculated as:
+\[
+W^* = U \cdot I \cdot t = 227.5 \,\text{V}\cdot 0.3695 \,\text{A}\cdot 35.0 \,\text{s}= 2942.14 \, \text{J}
+\]
+The propagated error for \( W^* \) is:
+\[
+\sigma_{W^*} = W^* \sqrt{\left(\frac{\sigma_U}{U}\right)^2 + \left(\frac{\sigma_I}{I}\right)^2 + \left(\frac{\sigma_t}{t}\right)^2}
+\]
+Substituting values, \( \sigma_t = 0.2 \, s \):
+\[
+\sigma_{W^*} = 57 \, \text{J}
+\]
+Thus, the electrical work is:
+\[
+W^* = 2.94 \pm 0.06 \, \text{kJ}
+\]
+
+\subsection{Neutralization Experiment}
+The mass of the HCl solution was determined from the weight difference before and after transfer:
+\[
+m_{\text{HCl}} = 86.295 \, \text{g} - 65.704 \, \text{g} = 20.591 \, \text{g}
+\]
+Given the density \( \rho_{\text{HCl}} = 1.03 \, \text{g/mL} \), the volume \( V_{\text{HCl}} \) is:
+\[
+V_{\text{HCl}} = \frac{m_{\text{HCl}}}{\rho_{\text{HCl}}} = \frac{20.591}{1.03} \,\text{mL}= 19.99 \, \text{mL}
+\]
+The error in \( V_{\text{HCl}} \):
+\[
+\sigma_{V_{\text{HCl}}} = \frac{\sqrt{(2 \cdot 0.0005)^2}}{1.03} = 0.0007 \, \text{mL}
+\]
+Thus,
+\[
+V_{\text{HCl}} = 19.99 \pm 0.001 \, \text{mL}
+\]
+
+The molar amount of HCl is:
+\[
+n_{\text{HCl}} = \frac{c_{\text{HCl}} \cdot V_{\text{HCl}}}{1000} = \frac{2.113 \cdot 19.99}{1000} = 0.04225 \, \text{mol}
+\]
+The propagated error is:
+\[
+\sigma_{n_{\text{HCl}}} = n_{\text{HCl}} \sqrt{\left(\frac{\sigma_{c_{\text{HCl}}}}{c_{\text{HCl}}}\right)^2 + \left(\frac{\sigma_{V_{\text{HCl}}}}{V_{\text{HCl}}}\right)^2}
+\]
+Resulting in:
+\[
+\sigma_{n_{\text{HCl}}} = 0.00027 \, \text{mol}
+\]
+Thus,
+\[
+n_{\text{HCl}} = 0.04225 \pm 0.00027 \, \text{mol}
+\]
+
+\subsection{Determination of Molar Enthalpy}
+The potential difference during neutralization was measured as:
+\[
+\Delta \Phi_{\text{neutralization}} = 5.82 \times 10^{-5} \pm 1.41 \times 10^{-6} \, \text{V}
+\]
+The molar enthalpy change was calculated using:
+\[
+\Delta H_{m, \text{neutralization}} = -\frac{W^* \cdot \Delta \Phi_{\text{neutralization}}}{\Delta \Phi_{\text{calibration}} \cdot n_{\text{HCl}}} = -\frac{2942 \cdot 5.82 \times 10^{-5}}{7.01 \times 10^{-5} \cdot 0.04225} = -57816 \, \text{J/mol}
+\]
+The error propagation yields:
+\[
+\sigma_{\Delta H_{m, \text{neutralization}}} = \Delta H_{m, \text{neutralization}} \sqrt{\left(\frac{\sigma_{W^*}}{W^*}\right)^2 + \left(\frac{\sigma_{\Delta \Phi_{\text{neutralization}}}}{\Delta \Phi_{\text{neutralization}}}\right)^2 + \left(\frac{\sigma_{\Delta \Phi_{\text{calibration}}}}{\Delta \Phi_{\text{calibration}}}\right)^2 + \left(\frac{\sigma_{n_{\text{HCl}}}}{n_{\text{HCl}}}\right)^2}
+\]
+Resulting in:
+\[
+\sigma_{\Delta H_{m, \text{neutralization}}} = 2173 \, \text{J/mol}
+\]
+Thus,
+\[
+\Delta H_{m, \text{neutralization}} = -57816 \pm 2173 \, \text{J/mol}
+\]
+
+
+\end{document}

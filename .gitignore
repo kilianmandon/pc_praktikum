@@ -28,6 +28,7 @@
 *.vrb
 *.tdo
 
+*.DS_Store
 # Intermediate and backup files
 *.dvi
 *.ps
