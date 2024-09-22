@@ -57,6 +57,11 @@ print("Acid concentration error (mol/L):", c_acid_err)
 # Volume of acid by weight difference (in mL)
 mass_difference = mass_acid_before - mass_acid_after
 volume_acid_weight = mass_difference / density_acid  # Volume calculation by mass
+<<<<<<< HEAD
+=======
+print(f"Mass difference: {mass_difference}")
+print(f"Mass difference error: {np.sqrt(2)*mass_error}")
+>>>>>>> b7e12b8 (Finished protocol on freezing point, started work on neutralization.)
 volume_acid_weight_error = np.sqrt(2 * mass_error**2) / density_acid  # Error propagation
 print("Volume of acid by weight (mL):", volume_acid_weight)
 print("Volume error (mL):", volume_acid_weight_error)
